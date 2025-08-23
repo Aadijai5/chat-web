@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#0A0F1C">
     <meta name="description" content="Download ETHON - Your ultimate hackathon companion app">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-title" content="ETHON">
+    <meta name="application-name" content="ETHON">
     <title>ETHON - Download</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -34,11 +39,9 @@
     <main>
         <section class="app-showcase">
             <div class="app-screenshots">
-                <!-- App screenshots slider -->
                 <div class="screenshot-slider">
                     <div class="screenshot">
                         <div class="phone-frame">
-                            <!-- Replace src with your actual screenshot -->
                             <div class="placeholder-screen">
                                 <i class="fas fa-image"></i>
                             </div>
@@ -87,48 +90,6 @@
                         <i class="fas fa-qrcode"></i>
                     </div>
                     <p>Scan to Download</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="features" data-aos="fade-up" data-aos-duration="1000">
-            <h2 class="section-title">Key Features</h2>
-            <div class="feature-list">
-                <div class="feature" data-aos="fade-right" data-aos-delay="200">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3>Fast & Lightweight</h3>
-                        <p>Lightning-fast performance with minimal resource usage</p>
-                        <div class="feature-hover">
-                            <span class="learn-more">Learn More</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="feature" data-aos="fade-right" data-aos-delay="400">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3>Secure & Private</h3>
-                        <p>Your data is encrypted and protected</p>
-                        <div class="feature-hover">
-                            <span class="learn-more">Learn More</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="feature" data-aos="fade-right" data-aos-delay="600">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3>Regular Updates</h3>
-                        <p>Continuous improvements and new features</p>
-                        <div class="feature-hover">
-                            <span class="learn-more">Learn More</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -182,184 +143,7 @@
             </div>
         </section>
 
-        <section class="reviews-section" data-aos="fade-up">
-            <h2 class="section-title">User Reviews</h2>
-            <div class="reviews-container">
-                <!-- Featured Reviews -->
-                <div class="featured-reviews" data-aos="fade-up" data-aos-delay="200">
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-info">
-                                <div class="reviewer-avatar">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="reviewer-details">
-                                    <h4>John D.</h4>
-                                    <span class="review-date">2 days ago</span>
-                                </div>
-                            </div>
-                            <div class="review-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="review-text">"Amazing app for hackathons! The features are exactly what we needed. Makes organizing events so much easier."</p>
-                    </div>
 
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-info">
-                                <div class="reviewer-avatar">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="reviewer-details">
-                                    <h4>Sarah M.</h4>
-                                    <span class="review-date">1 week ago</span>
-                                </div>
-                            </div>
-                            <div class="review-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                        <p class="review-text">"Great user interface and very intuitive. Would be perfect with a few more customization options."</p>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-info">
-                                <div class="reviewer-avatar">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="reviewer-details">
-                                    <h4>Mike R.</h4>
-                                    <span class="review-date">2 weeks ago</span>
-                                </div>
-                            </div>
-                            <div class="review-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="review-text">"The best hackathon companion app I've used. Real-time updates and team collaboration features are fantastic!"</p>
-                    </div>
-                </div>
-
-                <!-- Reviews Summary -->
-                <div class="reviews-summary" data-aos="fade-up" data-aos-delay="400">
-                    <div class="rating-overview">
-                        <div class="average-rating">
-                            <span class="rating-number">4.8</span>
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="total-reviews">Based on 2,148 reviews</span>
-                        </div>
-                        <div class="rating-bars">
-                            <div class="rating-bar-item">
-                                <span class="rating-label">5</span>
-                                <div class="rating-bar">
-                                    <div class="bar-fill" style="width: 80%"></div>
-                                </div>
-                                <span class="rating-count">1,718</span>
-                            </div>
-                            <div class="rating-bar-item">
-                                <span class="rating-label">4</span>
-                                <div class="rating-bar">
-                                    <div class="bar-fill" style="width: 15%"></div>
-                                </div>
-                                <span class="rating-count">322</span>
-                            </div>
-                            <div class="rating-bar-item">
-                                <span class="rating-label">3</span>
-                                <div class="rating-bar">
-                                    <div class="bar-fill" style="width: 3%"></div>
-                                </div>
-                                <span class="rating-count">64</span>
-                            </div>
-                            <div class="rating-bar-item">
-                                <span class="rating-label">2</span>
-                                <div class="rating-bar">
-                                    <div class="bar-fill" style="width: 1%"></div>
-                                </div>
-                                <span class="rating-count">22</span>
-                            </div>
-                            <div class="rating-bar-item">
-                                <span class="rating-label">1</span>
-                                <div class="rating-bar">
-                                    <div class="bar-fill" style="width: 1%"></div>
-                                </div>
-                                <span class="rating-count">22</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="faq-section" data-aos="fade-up">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-container">
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="faq-question">
-                        <h3>What is ETHON?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>ETHON is your ultimate hackathon companion app that helps you manage events, track progress, and collaborate with your team effectively.</p>
-                    </div>
-                </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="faq-question">
-                        <h3>Is ETHON free to use?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, ETHON is completely free to download and use. We believe in supporting the hackathon community without any barriers.</p>
-                    </div>
-                </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="faq-question">
-                        <h3>How do I install ETHON?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Simply download the APK file, enable installation from unknown sources in your Android settings, and follow the installation prompts. Check our Installation Guide section for detailed steps.</p>
-                    </div>
-                </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="faq-question">
-                        <h3>Can I use ETHON offline?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, most features of ETHON work offline. However, team collaboration and real-time updates require an internet connection.</p>
-                    </div>
-                </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                    <div class="faq-question">
-                        <h3>How do I update ETHON?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>ETHON will notify you when updates are available. Simply download and install the new version to keep your app up to date with the latest features and improvements.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section class="rating-section" data-aos="fade-up">
             <h2 class="section-title">Rate Your Experience</h2>
@@ -385,11 +169,6 @@
     </main>
 
     <footer class="mobile-footer">
-        <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-        </div>
         <p>&copy; 2025 ETHON. All rights reserved.</p>
     </footer>
 

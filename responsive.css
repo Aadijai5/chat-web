@@ -1,0 +1,113 @@
+/* Responsive Design System */
+@media (max-width: 1200px) {
+    :root {
+        --container-width: min(100% - 2rem, 1000px);
+    }
+}
+
+@media (max-width: 960px) {
+    :root {
+        --container-width: min(100% - 1.5rem, 800px);
+    }
+    
+    .app-meta {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --space-xl: clamp(1.5rem, 4vw, 2rem);
+        --font-xl: clamp(1.25rem, 4vw, 1.5rem);
+    }
+
+    .mobile-header {
+        min-height: 25vh;
+    }
+
+    .app-meta {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .install-steps {
+        gap: var(--space-md);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --space-md: clamp(0.75rem, 2vw, 1rem);
+        --space-lg: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    .mobile-header {
+        min-height: 20vh;
+    }
+
+    .app-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .step {
+        padding: var(--space-md);
+    }
+
+    .step-icon {
+        width: min(50px, 15vw);
+        height: min(50px, 15vw);
+        font-size: var(--font-lg);
+    }
+
+    .download-link {
+        width: 100%;
+        padding: var(--space-md) var(--space-lg);
+    }
+}
+
+/* Portrait-specific adjustments */
+@media screen and (max-width: 480px) and (orientation: portrait) {
+    .app-screenshots {
+        margin: var(--space-sm) auto;
+    }
+
+    .phone-frame {
+        max-width: 70vw;
+    }
+}
+
+/* Landscape-specific adjustments */
+@media screen and (max-width: 896px) and (orientation: landscape) {
+    .mobile-header {
+        min-height: 60vh;
+    }
+
+    .app-screenshots {
+        max-width: 50vh;
+    }
+}
+
+/* Support for larger screens */
+@media (min-width: 1400px) {
+    :root {
+        --space-xl: clamp(2.5rem, 5vw, 4rem);
+        --font-xl: clamp(1.75rem, 4vw, 2.5rem);
+    }
+}
+
+/* High-DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
