@@ -172,6 +172,16 @@ body {
     overflow: hidden;
 }
 
+.app-icon-img {
+    width: 66%;
+    height: 66%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    background: transparent;
+}
+
 .app-icon::before {
     content: '';
     position: absolute;
@@ -303,7 +313,26 @@ body {
     justify-content: center;
     font-size: 3rem;
     color: #ddd;
+    padding: 12px; /* inner bezel so screenshot doesn't touch the frame */
+    box-sizing: border-box;
+    background: #fafafa;
 }
+
+/* Phone screenshot image inside mock frame */
+.phone-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* show full screenshot without cropping */
+    object-position: top center; /* align to top so header area is visible */
+    display: block;
+    border-radius: 14px; /* match the inner screen corners */
+    background: #ffffff;
+}
+
+/* Ensure the screenshot is clipped to the frame and doesn't overflow */
+.phone-frame { overflow: hidden; }
+
+/* Note: add your image file at: assets/phone-screenshot.png */
 
 .download-section {
     padding: var(--space-lg) var(--space-md);
