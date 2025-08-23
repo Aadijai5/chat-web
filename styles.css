@@ -95,6 +95,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: var(--space-md);
+    z-index: 2; /* keep header above the showcase panel */
 }
 
 .mobile-header h1 {
@@ -118,8 +119,10 @@ body {
 .floating-shapes div {
     position: absolute;
     background: var(--primary-accent);
-    opacity: 0.1;
+    /* very subtle, mostly static background shapes */
+    opacity: 0.04;
     border-radius: 50%;
+    animation: none !important;
 }
 
 .shape-1 {
@@ -127,7 +130,6 @@ body {
     height: 100px;
     top: 10%;
     left: 10%;
-    animation: float 8s infinite ease-in-out;
 }
 
 .shape-2 {
@@ -135,7 +137,6 @@ body {
     height: 150px;
     top: 60%;
     right: 10%;
-    animation: float 12s infinite ease-in-out reverse;
 }
 
 .shape-3 {
@@ -143,14 +144,14 @@ body {
     height: 70px;
     top: 30%;
     right: 20%;
-    animation: float 10s infinite ease-in-out;
 }
 
 @keyframes float {
+    /* kept for reference; minimal movement if re-enabled */
     0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(-15px, 15px) rotate(5deg); }
-    50% { transform: translate(15px, -15px) rotate(-5deg); }
-    75% { transform: translate(-15px, -15px) rotate(5deg); }
+    25% { transform: translate(-6px, 6px) rotate(1deg); }
+    50% { transform: translate(6px, -6px) rotate(-1deg); }
+    75% { transform: translate(-6px, -6px) rotate(1deg); }
 }
 
 .app-icon {
@@ -185,7 +186,8 @@ body {
         transparent
     );
     transform: rotate(45deg);
-    animation: shine 3s infinite;
+    /* slow, subtle shine */
+    animation: shine 8s infinite;
 }
 
 @keyframes shine {
@@ -199,8 +201,9 @@ body {
 }
 
 .glowing-text {
-    text-shadow: 0 0 10px rgba(253, 224, 71, 0.3);
-    animation: glow 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 8px rgba(253, 224, 71, 0.22);
+    /* very slow glow to reduce motion */
+    animation: glow 6s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
@@ -219,7 +222,8 @@ body {
     padding: var(--space-md);
     background: var(--primary-bg);
     border-radius: min(20px, 5vw) min(20px, 5vw) 0 0;
-    margin-top: min(-20px, -5vw);
+    /* reduced overlap so header content isn't covered */
+    margin-top: min(-12px, -3vw);
     position: relative;
     z-index: 1;
     width: 100%;
@@ -262,6 +266,33 @@ body {
     aspect-ratio: 9/16;
     overflow: hidden;
     background: #fff;
+}
+
+/* Parallax helper: ensure hardware acceleration and smooth transforms */
+.parallax {
+    will-change: transform;
+    transition: transform 0.12s linear;
+}
+
+@media (max-width: 640px) {
+    /* disable parallax on small screens for performance and usability */
+    .parallax { transform: none !important; transition: none !important; }
+}
+
+/* Scroll reveal animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 520ms cubic-bezier(.22,.98,.33,1), transform 520ms cubic-bezier(.22,.98,.33,1);
+    will-change: opacity, transform;
+}
+.scroll-animate.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-animate, .parallax { transition: none !important; transform: none !important; }
 }
 
 .placeholder-screen {
@@ -331,8 +362,8 @@ body {
     max-width: 300px;
     box-shadow: 0 8px 25px rgba(253, 224, 71, 0.2);
     border: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-transform: none; /* friendlier tone */
+    letter-spacing: 0.2px;
     position: relative;
     overflow: hidden;
     /* Mobile optimizations */
@@ -341,6 +372,19 @@ body {
     user-select: none;
     /* Ensure button is easily tappable */
     min-height: 48px;
+}
+
+/* small helper note below CTA */
+.help-note {
+    margin-top: 0.6rem;
+    color: var(--text-light);
+    opacity: 0.95;
+    font-size: 0.95rem;
+}
+
+.download-link span { /* slightly smaller label weight so it's less 'buttony' */
+    font-weight: 700;
+    font-size: 1rem;
 }
 
 .download-ripple {
@@ -375,8 +419,17 @@ body {
     border-radius: min(12px, 3vw);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--space-sm);
     transition: all 0.3s ease;
+}
+
+.meta-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .meta-item:active {
@@ -400,11 +453,7 @@ body {
     }
 }
 
-.meta-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
+
 
 .meta-value {
     font-size: 1.2rem;
@@ -423,6 +472,46 @@ body {
     background-color: #16a34a;
 }
 
+/* Android-only notice under download button */
+.android-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: var(--text-light);
+    opacity: 0.9;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+.android-note i {
+    color: #A4C639; /* Android green */
+    font-size: 1.1rem;
+}
+
+/* Play Store notice */
+.playstore-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-top: 0.4rem;
+    padding: 0.6rem 0.9rem;
+    background: linear-gradient(135deg, rgba(253,224,71,0.10), rgba(34,63,89,0.03));
+    border: 1px solid rgba(253,224,71,0.18);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(253,224,71,0.06);
+}
+.playstore-note i {
+    color: #4285F4; /* Google blue */
+    font-size: 1.05rem;
+}
+
+@media (max-width: 480px) {
+    .playstore-note { font-size: 0.95rem; padding: 0.55rem 0.75rem; }
+}
+
 
 
 /* Installation section */
@@ -432,6 +521,140 @@ body {
     margin: 2rem 1rem;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Rating section styles */
+.rating-section {
+    padding: 2.5rem 1rem;
+    background: linear-gradient(180deg, rgba(34,63,89,0.04), rgba(47,76,115,0.02));
+    margin: 2rem 1rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.rating-container {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stars {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.stars i {
+    font-size: 2.2rem;
+    color: rgba(255,255,255,0.18);
+    cursor: pointer;
+    transition: transform 0.18s ease, color 0.16s ease, filter 0.18s ease;
+    user-select: none;
+    will-change: transform, filter;
+}
+
+.stars i:hover {
+    transform: translateY(-4px) scale(1.06);
+}
+
+.stars i.active {
+    color: var(--primary-accent);
+    transform: translateY(-2px) scale(1.06);
+    text-shadow: 0 6px 20px rgba(253,224,71,0.12);
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+}
+
+.rating-text {
+    color: var(--text-light);
+    opacity: 0.98;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.rating-feedback {
+    width: 100%;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.rating-feedback textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(10,15,28,0.6);
+    color: var(--text-light);
+    resize: vertical;
+    outline: none;
+    transition: box-shadow 0.12s ease;
+}
+
+.rating-feedback textarea:focus {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    border-color: rgba(253,224,71,0.25);
+}
+
+.submit-rating {
+    align-self: flex-end;
+    padding: 0.6rem 1rem;
+    background: var(--primary-accent);
+    color: var(--primary-bg);
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(253,224,71,0.14);
+    transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.submit-rating:active {
+    transform: translateY(1px) scale(0.995);
+}
+
+.rating-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-light);
+}
+
+.rating-success i {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: var(--primary-accent);
+    border-radius: 50%;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    font-size: 0.95rem;
+}
+
+.rating-success p {
+    margin: 0;
+    background: #0b63ff; /* highlighted blue pill */
+    color: #ffffff;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(11,99,255,0.12);
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .stars i { font-size: 2.4rem; }
+    .rating-feedback textarea { min-height: 110px; }
+    .submit-rating { width: 100%; align-self: stretch; }
+    .rating-success p { padding: 0.6rem 1rem; font-size: 0.98rem; }
 }
 
 .installation h2 {
